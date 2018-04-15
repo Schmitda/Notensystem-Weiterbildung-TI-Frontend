@@ -28,6 +28,11 @@ Those are all included in "Demo-Component".
 
 * Demo-Component
 
+Demo-Component Tab 1: 
+(https://github.com/Schmitda/Notensystem-Weiterbildung-TI-Frontend/blob/master/Angular-Material-Demo.PNG?raw=true)
+Demo-Component Tab 2: 
+(https://github.com/Schmitda/Notensystem-Weiterbildung-TI-Frontend/blob/master/Angular-Material_2.PNG?raw=true)
+
 The bundle-size-analysis is performed by webpack's Webpack-Bundle-Analyzer. 
 
 Following three build-methods are included: 
@@ -99,6 +104,8 @@ Result of interpretation:
 * Further possible improvements 
   * Implementing Ivy (if it is ready before August)
   * Serving Angular files as GZIP 
+  
+ 
 
 ## Development server
 
