@@ -5,19 +5,28 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod",
+    "build-jit-np": "ng build --stats-json",
+    "build-aot": "ng build --aot --stats-json",
+    "build-aot-bo": "ng build --aot --build-optimizer --stats-json",
+    "build-aot-bo-prod": "ng build --aot --prod --build-optimizer --stats-json",
+    "bundle-report-jit-np": "webpack-bundle-analyzer stats-jit-non-production.json",
+    "bundle-report-aot": "webpack-bundle-analyzer stats--aot.json",
+    "bundle-report-aot-bo": "webpack-bundle-analyzer stats-aot-bo.json",
+    "bundle-report-aot-bo-prod": "webpack-bundle-analyzer stats-prod-aot-bo-stats.json",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^5.2.0",
+    "@angular/animations": "^5.2.9",
+    "@angular/cdk": "^5.2.4",
     "@angular/common": "^5.2.0",
     "@angular/compiler": "^5.2.0",
     "@angular/core": "^5.2.0",
     "@angular/forms": "^5.2.0",
     "@angular/http": "^5.2.0",
+    "@angular/material": "^5.2.4",
     "@angular/platform-browser": "^5.2.0",
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
@@ -43,6 +52,7 @@
     "protractor": "~5.1.2",
     "ts-node": "~4.1.0",
     "tslint": "~5.9.1",
-    "typescript": "~2.5.3"
+    "typescript": "~2.5.3",
+    "webpack-bundle-analyzer": "^2.11.1"
   }
 }

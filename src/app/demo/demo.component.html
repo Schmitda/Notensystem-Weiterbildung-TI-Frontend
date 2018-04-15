@@ -1,0 +1,136 @@
+<div class="flex">
+  <div class="spacer"></div>
+  <div class="width-750">
+    <mat-tab-group>
+      <mat-tab label="Komponent">
+        <h1>Komponenten</h1>
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Benutzerdaten</mat-card-title>
+            <mat-card-subtitle>Demo - Daniel Schmitz & Simon Schaad</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image src="https://christianliebel.com/wp-content/uploads/2016/02/Angular2-825x510.png"
+               alt="Photo of a Shiba Inu">
+          <mat-card-content>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci at corporis dolores est nam neque
+              omnis
+              quod
+              repellendus repudiandae saepe suscipit velit veritatis, vero voluptatibus. Cum doloremque sunt voluptates!
+            <div class="material-components">
+              <form action="" [formGroup]="form">
+                <div class="form-group">
+                  <mat-form-field>
+                    <input type="text" matInput="" placeholder="Vorname" formControlName="firstname">
+                  </mat-form-field>
+                </div>
+                <div class="form-group">
+                  <mat-form-field>
+                    <input type="text" matInput="" placeholder="Nachname" formControlName="lastname">
+                  </mat-form-field>
+                </div>
+                <div class="form-group">
+                  <mat-form-field>
+                    <mat-select placeholder="Land auswählen" [formControlName]="'country'">
+                      <mat-option value="CH">
+                        Schweiz
+                      </mat-option>
+                      <mat-option value="DE">
+                        Deutschland
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="form-group">
+                  <label for="">Einkommen</label>
+                  <mat-slider max="25000" step="100" value="3000" min="3000" [formControlName]="'income'"></mat-slider>
+                  <br>
+                  <span>{{form.get('income')?.value}} CHF</span>
+                </div>
+                <div class="form-group">
+                  <mat-form-field>
+                    <input matInput [matDatepicker]="picker" formControlName="birthdate" placeholder="Datum auswählen">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+                </div>
+                <div class="form-group">
+                  <mat-radio-group formControlName="gender">
+                    <mat-radio-button [value]="'m'">Männlich</mat-radio-button>
+                    <mat-radio-button [value]="'f'">Weiblich</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+                <div class="form-group">
+                  <mat-checkbox formControlName="gender" [checked]="form.get('gender').value === 'm'" [value]="'m'">
+                    Männlich
+                  </mat-checkbox>
+                  <mat-checkbox formControlName="gender" [checked]="form.get('gender').value === 'f'" [value]="'f'">
+                    Weiblich
+                  </mat-checkbox>
+                </div>
+                <div class="form-group">
+                  <mat-slide-toggle formControlName="agb">AGB's akzeptieren</mat-slide-toggle>
+                </div>
+              </form>
+            </div>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button>LIKE</button>
+            <button mat-button>SHARE</button>
+          </mat-card-actions>
+        </mat-card>
+      </mat-tab>
+
+      <mat-tab label="Komponent 2">
+        <mat-chip-list>
+          <mat-chip>One fish</mat-chip>
+          <mat-chip>Two fish</mat-chip>
+          <mat-chip color="primary" selected="true">Primary fish</mat-chip>
+          <mat-chip color="accent" selected="true">Accent fish</mat-chip>
+        </mat-chip-list>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid at cumque nesciunt officiis pariatur quod
+          tempore? Aliquid animi deleniti deserunt incidunt inventore ipsam itaque natus qui unde. Accusamus beatae
+          consequatur eos error minus necessitatibus, nobis sit ullam. Accusantium, cumque minus?
+        </p>
+
+        <mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper">
+          <mat-step [stepControl]="firstFormGroup">
+            <form [formGroup]="firstFormGroup">
+              <ng-template matStepLabel>Fill out your name</ng-template>
+              <mat-form-field>
+                <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+              </mat-form-field>
+              <div>
+                <button mat-button matStepperNext>Next</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step [stepControl]="secondFormGroup">
+            <form [formGroup]="secondFormGroup">
+              <ng-template matStepLabel>Fill out your address</ng-template>
+              <mat-form-field>
+                <input matInput placeholder="Address" formControlName="secondCtrl" required>
+              </mat-form-field>
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step>
+            <ng-template matStepLabel>Done</ng-template>
+            You are now done.
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button (click)="stepper.reset()">Reset</button>
+            </div>
+          </mat-step>
+        </mat-horizontal-stepper>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+  <div class="spacer"></div>
+</div>
+
+

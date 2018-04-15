@@ -1,1 +1,23 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
 /* You can add global styles to this file, and also import other style files */
+body, html {
+  font-family: Calibri;
+}
+
+input, mat-form-field {
+  display: block;
+  width: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.width-750 {
+  width: 400px;
+}
