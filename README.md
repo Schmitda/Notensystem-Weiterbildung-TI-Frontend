@@ -30,6 +30,7 @@ Those are all included in "Demo-Component".
 
 Demo-Component Tab 1: 
 (https://github.com/Schmitda/Notensystem-Weiterbildung-TI-Frontend/blob/master/Angular-Material-Demo.PNG?raw=true)
+
 Demo-Component Tab 2: 
 (https://github.com/Schmitda/Notensystem-Weiterbildung-TI-Frontend/blob/master/Angular-Material_2.PNG?raw=true)
 
