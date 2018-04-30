@@ -1,0 +1,52 @@
+@import "../../../assets/sass/variables";
+header{
+  background-color: $primary-color;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,.08);
+
+}
+
+.minimize-maximize{
+  float: right;
+  cursor: pointer;
+}
+
+:host{
+  z-index: 10;
+}
+
+.logo{
+  padding: 20px;
+  width: 300px;
+  box-sizing: border-box;
+}
+
+.left{
+  flex: 1;
+}
+
+.user{
+  padding: 20px;
+  i{
+    margin-left: 10px;
+  }
+}
+
+.left, .right{
+  border-bottom: 1px solid $border-color;
+}
+
+nav i{
+  padding: 20px;
+  color: white;
+}
+
+header nav i {
+  cursor: pointer;
+}
+
+header nav i:hover{
+  color: black;
+}
+
+

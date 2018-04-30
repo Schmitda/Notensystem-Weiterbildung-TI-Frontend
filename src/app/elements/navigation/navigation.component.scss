@@ -1,0 +1,93 @@
+@import "../../../assets/sass/variables";
+
+a {
+  color: $white;
+  text-decoration: none;
+  padding: 20px;
+  cursor: pointer;
+  display: block;
+  transition-duration: $transition-duration-slow;
+  &:hover {
+    background-color: $accent-color;
+    color: white;
+  }
+}
+
+:host {
+  display: flex;
+  flex-direction: column;
+  -webkit-transition-duration: .5s;
+  transition-duration: .5s;
+  background-color: $accent-color-dark;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+span.badge {
+  font-size: 0.8em;
+  padding: 3px 10px;
+  background-color: #344046;
+  border-radius: 10px;
+  float: right;
+}
+
+.navigation-items {
+  flex: 1;
+}
+
+.navigation-item {
+  border-bottom: 1px solid #344046;
+}
+
+i.fas.fa-chevron-right.icon-right {
+  float: right;
+}
+
+.icon-left {
+  margin-right: 10px;
+}
+
+.nav-bottom-elements {
+  background-color: darken($accent-color,15%);
+}
+
+.nav-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 75px;
+  background-color: #263238;
+}
+
+.nav-bottom-elements {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bottom-element {
+  flex: 1;
+  cursor: pointer;
+  text-align: center;
+  padding: 25px;
+  &:hover {
+    background-color: darken($accent-color, 5%);
+    color: white;
+  }
+}
+
+.close {
+  display: flex;
+  justify-content: flex-end;
+  i {
+    font-size: 12px;
+    padding: 25px;
+  }
+}

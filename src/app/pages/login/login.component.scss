@@ -1,0 +1,29 @@
+.login-wrapper {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  min-width: 400px;
+}
+
+.login-window {
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 2px 2px 2px lightgray;
+}
+
+.login-wrapper h4 {
+  padding: 20px;
+  border-bottom: 1px solid lightgray;
+}
+
+.form-group {
+  padding: 10px;
+}
+
+.footer {
+  padding: 20px;
+  border-top: 1px solid lightgray;
+  display: flex;
+  justify-content: flex-end;
+}

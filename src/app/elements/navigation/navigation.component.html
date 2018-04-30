@@ -1,0 +1,39 @@
+<div class="navigation-items">
+  <div class="navigation-item">
+    <a routerLink="/home" routerLinkActive="active-link"><i class="fas fa-tachometer-alt icon-left"></i>
+      <span>Dashboard</span> </a>
+  </div>
+</div>
+
+<div class="nav-bottom-elements">
+  <div class="bottom-element" routerLink="/home">
+    <i class="fas fa-home"></i>
+  </div>
+  <div class="bottom-element" routerLink="/supplier/profile/">
+    <i class="fas fa-cogs"></i>
+  </div>
+  <div class="bottom-element" (click)="logout()">
+    <i class="fas fa-power-off"></i>
+  </div>
+</div>
+
+<div class="nav-menu" [@leftInLeftOut] *ngIf="menuToShow=== 'delivery'">
+  <ng-container *ngTemplateOutlet="close"></ng-container>
+  <div class="navigation-item">
+    <a [routerLink]="['/supplier/list', {tab: 'Lieferant'}]" routerLinkActive="active-link">Lieferantenübersicht</a>
+  </div>
+  <div class="navigation-item">
+    <a routerLink="supplier/list" routerLinkActive="active-link">Benutzerübersicht</a>
+  </div>
+  <div class="navigation-item">
+    <a routerLink="supplier/add" routerLinkActive="active-link">Benutzer einladen</a>
+  </div>
+</div>
+
+
+
+<ng-template #close>
+  <div class="navigation-item">
+    <a (click)="menuToShow = null"><i class="fas fa-chevron-left icon-left"></i> Zurück </a>
+  </div>
+</ng-template>

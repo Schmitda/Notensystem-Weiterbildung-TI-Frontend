@@ -1,1 +1,11 @@
+<!--
 <app-demo></app-demo>
+-->
+<bfh-header *ngIf="guiService.showHeader"></bfh-header>
+<main>
+  <bfh-navigation *ngIf="guiService.showNavigation"></bfh-navigation>
+  <div class="page-content">
+    <router-outlet #outlet="outlet"></router-outlet>
+  </div>
+</main>
+<footer *ngIf="guiService.isLoginPage == true"></footer>

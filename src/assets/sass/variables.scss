@@ -1,0 +1,27 @@
+$primary-color: #ffc900;
+$primary-color-dark: darken($primary-color,5%);
+$primary-hover-color: darken($primary-color, 5%);
+$accent-color: #697d91;
+$accent-color-dark: darken($accent-color, 10%);
+$warning-color: #eb6709;
+$info-color: #0bb2d4;
+$danger-color: #ff4c52;
+$success-color: #009353;
+$white: white;
+$text-color: #76838f;
+$grayblue: #f1f4f5;
+
+$border-color: #e4eaec;
+
+$transition-duration-slow: 500ms;
+$transition-duration-fast: 250ms;
+
+
+$sizes: (
+  'none': 0,
+  'xsmall': 5px,
+  'small': 7px,
+  'medium': 15px,
+  'large': 20px,
+  'xlarge': 25px
+);

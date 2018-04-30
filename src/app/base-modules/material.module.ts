@@ -2,7 +2,8 @@ import {NgModule} from '@angular/core';
 import {
   MatButtonModule,
   MatCardModule,
-  MatCheckboxModule, MatChipsModule,
+  MatCheckboxModule,
+  MatChipsModule,
   MatDatepickerModule,
   MatFormFieldModule,
   MatInputModule,
@@ -10,7 +11,8 @@ import {
   MatRadioModule,
   MatSelectModule,
   MatSliderModule,
-  MatSlideToggleModule, MatStepperModule,
+  MatSlideToggleModule,
+  MatStepperModule,
   MatTabsModule
 } from '@angular/material';
 

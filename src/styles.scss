@@ -1,8 +1,139 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-
+@import "assets/sass/variables";
+@import "assets/sass/mixin";
+@import "assets/sass/animated-background";
+@import "assets/sass/ball-pulse";
 /* You can add global styles to this file, and also import other style files */
-body, html {
-  font-family: Calibri;
+
+
+@include createFlex(12);
+
+html, body {
+  background-color: #f1f4f5;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  color: #76838f;
+  max-height: 100vh;
+  font-size: 14px;
+  font-family: Roboto, SansSerif, serif;
+}
+
+[disabled]{
+  cursor: not-allowed!important;
+}
+
+.page-content{
+  padding: 20px;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.page {
+  padding: 20px;
+}
+
+.relative {
+  position: relative;
+}
+
+.page-title {
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    margin-bottom: 10px;
+  }
+}
+
+.page-content {
+  background-color: $grayblue;
+  flex: 1;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+body main {
+  flex: 1;
+  display: flex;
+
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  line-height: 1.2;
+  color: $primary-color;
+}
+
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.7em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+h4 {
+  font-size: 1.3em;
+}
+
+h5 {
+  font-size: 1.2em;
+}
+
+
+.bold {
+  font-weight: bold;
+}
+
+.flex {
+  display: flex;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.space-around {
+  justify-content: space-around;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.text-center {
+  text-align: center;
+}
+
+
+.page {
+  padding: 20px;
+  overflow-y: scroll;
+  max-height: calc(100vh - 58px);
+  box-sizing: border-box;
 }
 
 input, mat-form-field {
@@ -20,4 +151,62 @@ input, mat-form-field {
 
 .width-750 {
   width: 400px;
+}
+
+.clearfix {
+  clear: both;
+  overflow: hidden;
+}
+
+ul {
+  margin: 0;
+  padding-left: 15px;
+}
+
+
+body.maximized {
+  header .logo {
+    width: 300px;
+    overflow: hidden;
+    transition-duration: 500ms;
+  }
+
+  bfh-navigation {
+    min-width: 300px;
+    max-width: 300px;
+  }
+
+  .page-content {
+    max-width: calc(100% - 300px);
+  }
+}
+
+body.minimized {
+  header .logo {
+    width: 60px;
+    overflow: hidden;
+    transition-duration: 500ms;
+  }
+
+  .nav-bottom-elements {
+    flex-wrap: wrap;
+    width: 100%;
+    transition-duration: 500ms;
+  }
+
+  bfh-navigation {
+    min-width: 60px;
+    max-width: 60px;
+    .navigation-items {
+      a i {
+        transition-duration: 500ms;
+        font-size: 20px;
+        margin-right: 17px;
+      }
+
+    }
+  }
+  .page-content {
+    max-width: calc(100% - 60px);
+  }
 }

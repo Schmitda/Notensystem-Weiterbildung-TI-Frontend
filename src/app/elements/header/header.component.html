@@ -1,0 +1,26 @@
+<header>
+  <div class="flex">
+    <div class="logo bg-primary bold">
+      <span class="company-name" [@fadeInDelayed]>BFH - Weiterbildungssytem</span>
+      <div class="minimize-maximize" (click)="toggleHeader()">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+    <nav class="left flex">
+      <div class="nav-item">
+        <i (click)="back()" class="fas fa-arrow-left"></i>
+      </div>
+      <div class="nav-item">
+        <i (click)="openFullScreen()" class="fas fa-arrows-alt"></i>
+      </div>
+      <!--<div class="nav-item">
+        <i class="fas fa-search"></i>
+      </div>-->
+    </nav>
+    <div class="right">
+      <div class="user">
+        <i class="fas fa-power-off" (click)="logout()"></i>
+      </div>
+    </div>
+  </div>
+</header>

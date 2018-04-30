@@ -1,0 +1,221 @@
+@mixin breakpoint($point) {
+  @if ($point == largeDesktop) {
+    @media (min-width: 1690px) {
+      @content ;
+    }
+  } @else if $point == desktop {
+    @media (min-width: 1280px) {
+      @content ;
+    }
+  } @else if $point == laptop {
+    @media (min-width: 980px) {
+      @content ;
+    }
+  } @else if $point == tablet {
+    @media (min-width: 736px) {
+      @content ;
+    }
+  } @else if $point == phablet {
+    @media (min-width: 680px) {
+      @content ;
+    }
+  } @else if $point == mobileonly {
+    @media (max-width: 480px) {
+      @content ;
+    }
+  }
+}
+
+@mixin maxBreakpoint($point){
+  @if ($point == largeDesktop) {
+    @media (max-width: 1690px) {
+      @content ;
+    }
+  } @else if $point == desktop {
+    @media (max-width: 1280px) {
+      @content ;
+    }
+  } @else if $point == laptop {
+    @media (max-width: 980px) {
+      @content ;
+    }
+  } @else if $point == tablet {
+    @media (max-width: 736px) {
+      @content ;
+    }
+  } @else if $point == phablet {
+    @media (max-width: 680px) {
+      @content ;
+    }
+  } @else if $point == mobileonly {
+    @media (max-width: 480px) {
+      @content ;
+    }
+  }
+}
+
+@mixin createPadding($map) {
+  @each $name, $value in $map {
+    .p-#{$name} {
+      padding: $value;
+    }
+    .p-tb-#{$name} {
+      padding-top: $value;
+      padding-bottom: $value;
+    }
+    .p-lr-#{$name} {
+      padding-left: $value;
+      padding-right: $value;
+    }
+    .p-t-#{$name} {
+      padding-top: $value;
+    }
+    .p-b-#{$name} {
+      padding-bottom: $value;
+    }
+    .p-l-#{$name} {
+      padding-left: $value;
+    }
+    .p-r-#{$name} {
+      padding-right: $value;
+    }
+  }
+}
+
+@mixin createMargin($map) {
+  @each $name, $value in $map {
+    .m-#{$name} {
+      margin: $value;
+    }
+    .m-tb-#{$name} {
+      margin-top: $value;
+      margin-bottom: $value;
+    }
+    .m-lr-#{$name} {
+      margin-left: $value;
+      margin-right: $value;
+    }
+    .m-t-#{$name} {
+      margin-top: $value;
+    }
+    .m-b-#{$name} {
+      margin-bottom: $value;
+    }
+    .m-l-#{$name} {
+      margin-left: $value;
+    }
+    .m-r-#{$name} {
+      margin-right: $value;
+    }
+  }
+}
+
+@mixin createMarginPadding($map) {
+  @include createMargin($map);
+  @include createPadding($map);
+}
+
+@mixin createColor($name, $color, $white: false) {
+  @if ($white == false) {
+    .#{$name} {
+      color: $color !important;
+    }
+    .bg-#{$name} {
+      background-color: $color;
+    }
+  } @else {
+    .#{$name} {
+      color: $color;
+    }
+    .bg-#{$name} {
+      background-color: $color;
+      color: white;
+    }
+  }
+}
+
+@mixin createButton($name, $color, $white: true) {
+  @if ($white == true) {
+    .btn-#{$name} {
+      color: #fff;
+      background-color: $color;
+      border-color: $color;
+      box-shadow: none;
+      transition-duration: $transition-duration-fast;
+      &:hover {
+        background-color: lighten($color, 3%);
+        transition-duration: $transition-duration-fast;
+      }
+      &:active {
+        transition-duration: $transition-duration-fast;
+        background-color: darken($color, 3%);
+      }
+    }
+  }
+}
+
+@mixin createFlex($gridSize) {
+  @include breakpoint(mobileonly) {
+    @for $i from 1 through $gridSize {
+      .col-xs-#{$i} {
+        width: percentage($i / $gridSize);
+      }
+      .flex-xs-#{$i} {
+        flex: $i;
+      }
+    }
+  }
+  @include breakpoint(phablet) {
+    @for $i from 1 through $gridSize {
+      .col-sm-#{$i} {
+        width: percentage($i / $gridSize);
+      }
+      .flex-sm-#{$i} {
+        flex: $i;
+      }
+    }
+  }
+  @include breakpoint(tablet) {
+    @for $i from 1 through $gridSize {
+      .col-tb-#{$i} {
+        width: percentage($i / $gridSize);
+      }
+      .flex-tb-#{$i} {
+        flex: $i;
+      }
+    }
+  }
+
+  @include breakpoint(laptop) {
+    @for $i from 1 through $gridSize {
+      .col-md-#{$i} {
+        width: percentage($i / $gridSize);
+      }
+      .flex-md-#{$i} {
+        flex: $i;
+      }
+    }
+  }
+
+  @include breakpoint(desktop) {
+    @for $i from 1 through $gridSize {
+      .col-lg-#{$i} {
+        width: percentage($i / $gridSize);
+      }
+      .flex-lg-#{$i} {
+        flex: $i;
+      }
+    }
+  }
+  @include breakpoint(largeDesktop) {
+    @for $i from 1 through $gridSize {
+      .col-xl-#{$i} {
+        width: percentage($i / $gridSize);
+      }
+      .flex-xl-#{$i} {
+        flex: $i;
+      }
+    }
+  }
+
+}
