@@ -154,6 +154,14 @@
   }
 }
 
+
+.col-xs-1{
+  width: 1/12;
+}
+.flex-xs-1{
+  flex:1;
+}
+
 @mixin createFlex($gridSize) {
   @include breakpoint(mobileonly) {
     @for $i from 1 through $gridSize {
