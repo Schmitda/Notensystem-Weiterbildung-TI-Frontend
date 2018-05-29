@@ -83,7 +83,7 @@
       "check-else",
       "check-whitespace"
     ],
-    "prefer-const": true,
+    "prefer-const": false,
     "quotemark": [
       false,
       "single"
@@ -120,13 +120,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "app",
+      "bfh",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "app",
+      "bfh",
       "kebab-case"
     ],
     "no-output-on-prefix": true,

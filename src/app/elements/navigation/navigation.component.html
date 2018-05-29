@@ -4,13 +4,14 @@
       <span>Dashboard</span> </a>
   </div>
   <div class="navigation-item">
-    <a (click)="menuToShow = 'more'" routerLinkActive="active-link"><i class="fas fa-tachometer-alt icon-left"></i>
-      <span>Expandierbares Menu</span> </a>
+    <a (click)="menuToShow = 'more'" routerLink="/employees/list" routerLinkActive="active-link"><i class="fas fa-user icon-left"></i>
+      <span>Mitarbeiter</span> </a>
   </div>
 </div>
 
 
 
+<!--
 <div class="nav-menu" [@leftInLeftOut] *ngIf="menuToShow=== 'more'">
   <ng-container *ngTemplateOutlet="close"></ng-container>
   <div class="navigation-item">
@@ -23,6 +24,7 @@
     <a routerLink="supplier/add" routerLinkActive="active-link">Studenten</a>
   </div>
 </div>
+-->
 
 
 

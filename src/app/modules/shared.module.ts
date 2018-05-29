@@ -1,19 +1,22 @@
 import {NgModule} from '@angular/core';
-import {GUIService} from '../services/gui.service';
 import {MaterialModule} from '../base-modules/material.module';
+import {ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
   imports: [
     MaterialModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   exports: [
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   declarations: [],
-  providers: [
-    GUIService
-  ],
+  providers: [],
 })
 export class SharedModule {
 }

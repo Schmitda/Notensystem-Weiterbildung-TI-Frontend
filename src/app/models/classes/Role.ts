@@ -17,7 +17,7 @@ export class Role extends BaseModel {
   }
 
   get type(): RoleTypeEnum {
-    return this._type;
+    return <RoleTypeEnum>this._type;
   }
 
   set type(value: RoleTypeEnum) {

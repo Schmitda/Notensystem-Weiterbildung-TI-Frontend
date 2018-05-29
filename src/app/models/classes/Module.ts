@@ -43,7 +43,7 @@ export class Module extends BaseModel {
   }
 
   get state(): ModuleStateEnum {
-    return this._state;
+    return <ModuleStateEnum>this._state;
   }
 
   set state(value: ModuleStateEnum) {

@@ -34,7 +34,7 @@ export class Notification extends BaseModel {
   }
 
   get state(): NotificationStateEnum {
-    return this._state;
+    return <NotificationStateEnum>this._state;
   }
 
   set state(value: NotificationStateEnum) {

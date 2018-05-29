@@ -8,8 +8,29 @@ export class Employee extends BaseModel {
   private _title: TitleEnum;
   private _function: string;
   private _roles: Array<Role>;
+  private _firstName: string;
+  private _lastName: string;
 
 
+  get firstName(): string {
+    return this._firstName;
+  }
+
+  set firstName(value: string) {
+    this._firstName = value;
+  }
+
+  get lastName(): string {
+    return this._lastName;
+  }
+
+  set lastName(value: string) {
+    this._lastName = value;
+  }
+
+  constructor(value: any) {
+    super(value);
+  }
 
   get id(): number {
     return this._id;
@@ -28,7 +49,7 @@ export class Employee extends BaseModel {
   }
 
   get title(): TitleEnum {
-    return this._title;
+    return <TitleEnum>this._title;
   }
 
   set title(value: TitleEnum) {

@@ -1,10 +1,10 @@
-import {RouterModule, Routes} from '@angular/router';
-import {ModuleWithProviders} from '@angular/core';
+import {Routes} from '@angular/router';
 import {LoginComponent} from './pages/login/login.component';
 import {ContentComponent} from './pages/content/content.component';
+export const employees = 'app/+employees/employee/employee.module#EmployeeModule';
+export const user = 'app/features/user/user.module#UserModule';
 
-
-export const routes: Routes = [
+  export const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {
     path: 'login',
@@ -15,7 +15,9 @@ export const routes: Routes = [
     path: 'content',
     component: ContentComponent,
     canActivate: [],
+  },
+  {
+    path: 'employees',
+    loadChildren: employees
   }
 ];
-
-export const routing: ModuleWithProviders = RouterModule.forRoot(routes, {useHash: false});

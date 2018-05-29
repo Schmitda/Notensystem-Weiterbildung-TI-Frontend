@@ -1,0 +1,36 @@
+<bfh-search-employees (requestChanged)="searchTermChanged(val)"></bfh-search-employees>
+
+<div class="table-responise">
+  <table>
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Titel</th>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>E-Mail</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let employee of employees$ | async">
+      <td>
+        {{employee.id}}
+      </td>
+      <td>
+        {{employee.title}}
+      </td>
+      <td>
+        {{employee.firstName}}
+      </td>
+      <td>
+        {{employee.lastName}}
+      </td>
+      <td>
+        {{employee.email}}
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <a mat-button routerLink="/employees/create" class="mat-raised-button mat-primary">Mitarbeiter erstellen</a>
+
+</div>
