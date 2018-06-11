@@ -21,7 +21,7 @@ export abstract class BaseCrudService<T> {
   }
 
   public delete(id: number) {
-    return this.httpClient.delete(this.baseUrl);
+    return this.httpClient.delete(this.baseUrl + '/' + id);
   }
 
 }

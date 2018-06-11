@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
+import {Observable} from 'rxjs';
 import {EmployeeService} from '../../services/employee.service';
 import {Employee} from '../../models/classes/Employee';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'bfh-list-employees',
@@ -10,6 +11,8 @@ import {Employee} from '../../models/classes/Employee';
 })
 export class ListEmployeesComponent implements OnInit {
   public employees$: Observable<Employee[]>;
+  public displayedColumns = ['id', 'shorthand_symbol', 'first_name', 'last_name', 'email', 'title', 'function', 'actions'];
+
 
   constructor(private employeeService: EmployeeService) {
 
@@ -20,13 +23,24 @@ export class ListEmployeesComponent implements OnInit {
   }
 
   public searchTermChanged(val: string) {
-    this.employees$ = this.employeeService.getAll().map((employees) => {
-      let tempEmployees = [];
-      employees.forEach(emply => {
-        tempEmployees.push(new Employee(employees));
-      });
-      return tempEmployees;
-    });
+    if (val) {
+      this.employees$ = this.employeeService.findByShorthandSymbol(val).pipe(
+        map((employees) => {
+          let tempEmployees = [];
+          employees.forEach(employee => {
+            tempEmployees.push(new Employee(employee));
+          });
+          return tempEmployees;
+        })
+      );
+    } else {
+      this.employees$ = this.employeeService.getAll();
+    }
   }
 
+  deleteEmployee(element: Employee) {
+    this.employeeService.delete(element.id).subscribe((value) => {
+      this.employees$ = this.employeeService.getAll();
+    });
+  }
 }

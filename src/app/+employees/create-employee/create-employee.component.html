@@ -1,26 +1,58 @@
-<form [formGroup]="employeeForm" (submit)="saveEmployee()">
-  <mat-form-field class="full-width">
-    <input matInput formControlName="firstName" placeholder="Vorname" value="">
-  </mat-form-field>
-  <mat-form-field class="full-width">
-    <input matInput formControlName="lastName" placeholder="Nachname" >
-  </mat-form-field>
-  <mat-form-field class="full-width">
-    <input matInput formControlName="email" placeholder="E-Mail" >
-  </mat-form-field>
-  <mat-form-field class="full-width">
-    <input matInput formControlName="title" placeholder="Titel" >
-  </mat-form-field>
-  <mat-form-field class="full-width">
-    <input matInput formControlName="function" placeholder="Funktion" >
-  </mat-form-field>
-  <mat-form-field class="full-width">
-    <mat-select formControlName="roles" placeholder="rollen" multiple>
-      <mat-option>--</mat-option>
-      <mat-option *ngFor="let role of ['Director', 'Head', 'Assistant', 'Professor']" [value]="role">{{role}}</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <a mat-button routerLink="/employees/list" class="mat-raised-button mat-primary">Zurück</a>
-  <button mat-button="" class="mat-primary" mat-raised-button="">Benutzer speichern</button>
+<mat-card>
+  <h1>Mitarbeiter hinzufügen</h1>
+  <form [formGroup]="employeeForm" (submit)="saveEmployee()">
+    <mat-form-field class="full-width">
+      <input matInput formControlName="shorthandSymbol" placeholder="Kurzzeichen" value="">
+      <mat-error *ngIf="employeeForm.get('shorthandSymbol').errors &&
+    employeeForm.get('shorthandSymbol').touched">
+        Kurzzeichen fehlerhaft.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input matInput formControlName="firstName" placeholder="Vorname" value="">
+      <mat-error *ngIf="employeeForm.get('firstName').errors &&
+    employeeForm.get('firstName').touched">
+        Vorname fehlerhaft.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input matInput formControlName="lastName" placeholder="Nachname">
+      <mat-error *ngIf="employeeForm.get('lastName').errors &&
+    employeeForm.get('lastName').touched">
+        Nachname fehlerhaft.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input matInput formControlName="email" placeholder="E-Mail">
+      <mat-error *ngIf="employeeForm.get('email').errors &&
+    employeeForm.get('email').touched">
+        E-Mail fehlerhaft.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-select formControlName="title" placeholder="Titel">
+        <mat-option [value]="'NONE'">Kein Titel</mat-option>
+        <mat-option *ngFor="let title of ['DR', 'PROF_DR']" [value]="title">{{title}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="employeeForm.get('title').errors &&
+    employeeForm.get('title').touched">
+        Titel fehlerhaft.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-select formControlName="function" placeholder="Funktion">
+        <mat-option [value]="null">Keine Rolle</mat-option>
+        <mat-option *ngFor="let role of ['Leiter Weiterbildung', 'Studienleiter']" [value]="role">{{role}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="employeeForm.get('function').errors &&
+    employeeForm.get('function').touched">
+        Funktion fehlerhaft.
+      </mat-error>
+    </mat-form-field>
+    <a mat-button routerLink="/employees/list" class="mat-raised-button mat-primary">Zurück</a>
+    <button mat-button="" class="mat-primary m-l-10" mat-raised-button="">Benutzer speichern</button>
 
-</form>
+  </form>
+</mat-card>

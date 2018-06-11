@@ -1,36 +1,58 @@
-<bfh-search-employees (requestChanged)="searchTermChanged(val)"></bfh-search-employees>
+<bfh-search-employees (requestChanged)="searchTermChanged($event)"></bfh-search-employees>
 
-<div class="table-responise">
-  <table>
-    <thead>
-    <tr>
-      <th>Id</th>
-      <th>Titel</th>
-      <th>Firstname</th>
-      <th>Lastname</th>
-      <th>E-Mail</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let employee of employees$ | async">
-      <td>
-        {{employee.id}}
-      </td>
-      <td>
-        {{employee.title}}
-      </td>
-      <td>
-        {{employee.firstName}}
-      </td>
-      <td>
-        {{employee.lastName}}
-      </td>
-      <td>
-        {{employee.email}}
-      </td>
-    </tr>
-    </tbody>
-  </table>
-  <a mat-button routerLink="/employees/create" class="mat-raised-button mat-primary">Mitarbeiter erstellen</a>
+<table mat-table [dataSource]="employees$ | async" class="full-width m-t-10">
 
-</div>
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> No.</th>
+    <td mat-cell *matCellDef="let element"> {{element.id}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="shorthand_symbol">
+    <th mat-header-cell *matHeaderCellDef> Vorname</th>
+    <td mat-cell *matCellDef="let element"> {{element.shorthandSymbol}}</td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="first_name">
+    <th mat-header-cell *matHeaderCellDef> Vorname</th>
+    <td mat-cell *matCellDef="let element"> {{element.firstName}}</td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="last_name">
+    <th mat-header-cell *matHeaderCellDef> Nachname</th>
+    <td mat-cell *matCellDef="let element"> {{element.lastName}}</td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef> E-Mail</th>
+    <td mat-cell *matCellDef="let element"> {{element.email}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef> Title</th>
+    <td mat-cell *matCellDef="let element"> {{element.title}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="function">
+    <th mat-header-cell *matHeaderCellDef> Funktion</th>
+    <td mat-cell *matCellDef="let element"> {{element.function}}</td>
+  </ng-container>
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Aktionen</th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-button="" mat-raised-button="" (click)="deleteEmployee(element)" class="mat-primary">Löschen</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<a mat-button routerLink="/employees/create" class="mat-raised-button mat-primary m-t-10">Mitarbeiter erstellen</a>
+

@@ -10,4 +10,8 @@ export class EmployeeService extends BaseCrudService<Employee> {
     super(httpClient, configuration['endpoints']['employee']);
   }
 
+  public findByShorthandSymbol(shorthandSymbol: string) {
+    return this.httpClient.get<Employee[]>(`/api/employees/byShorthand/${shorthandSymbol}`);
+  }
+
 }

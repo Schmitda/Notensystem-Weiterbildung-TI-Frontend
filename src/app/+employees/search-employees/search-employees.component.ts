@@ -1,7 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormControl} from '@angular/forms';
-import "rxjs/add/operator/debounceTime";
-import "rxjs/add/operator/distinctUntilChanged";
+import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
+
 
 @Component({
   selector: 'bfh-search-employees',
@@ -13,10 +13,12 @@ export class SearchEmployeesComponent implements OnInit {
   @Output() requestChanged: EventEmitter<string> = new EventEmitter();
 
   constructor() {
-    this.formControl.valueChanges
-      .debounceTime(500)
-      .distinctUntilChanged()
-      .subscribe(val=>{this.requestChanged.emit(val)});
+    this.formControl.valueChanges.pipe(
+      debounceTime(500),
+      distinctUntilChanged()
+    ).subscribe(val => {
+      this.requestChanged.emit(val);
+    });
   }
 
   ngOnInit() {

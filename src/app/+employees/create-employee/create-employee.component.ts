@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {EmployeeService} from '../../services/employee.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'bfh-create-employee',
@@ -10,25 +11,55 @@ import {EmployeeService} from '../../services/employee.service';
 export class CreateEmployeeComponent implements OnInit {
   public employeeForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private employeeService: EmployeeService) {
+  constructor(
+    private fb: FormBuilder,
+    private employeeService: EmployeeService,
+    private router: Router
+  ) {
   }
 
   ngOnInit() {
     this.employeeForm = this.fb.group({
-      firstName: [null],
-      lastName: [null],
-      title: [null],
-      email: [null],
-      function: [null],
-      roles: [null]
+      firstName: [null, [Validators.required]],
+      shorthandSymbol: [null, [Validators.required]],
+      lastName: [null, [Validators.required]],
+      title: [null, [Validators.required]],
+      email: [null, [Validators.required, Validators.email]],
+      function: [null, []],
     });
+    this.employeeForm.get('shorthandSymbol').setAsyncValidators(this.checkUnique.bind(this));
   }
 
   saveEmployee() {
     if (this.employeeForm.valid) {
       this.employeeService.save(this.employeeForm.value).subscribe((val) => {
-
+        this.router.navigateByUrl('/employees/list');
       });
     }
   }
+
+  public checkUnique(c: AbstractControl) {
+    return new Promise(((resolve, reject) => {
+      let value = c.value;
+      if (value) {
+        this.employeeService.findByShorthandSymbol(value).subscribe(employees => {
+          if (employees.length === 0) {
+            resolve(null);
+          } else {
+            let emp = employees.find(emp => emp.shorthandSymbol === value);
+            resolve({
+              unique: {
+                expected: 'Unique value',
+                found: emp
+              }
+            });
+          }
+        });
+      } else {
+        resolve(null);
+      }
+    }));
+
+  }
+
 }

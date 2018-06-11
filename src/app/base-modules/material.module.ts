@@ -13,6 +13,7 @@ import {
   MatSliderModule,
   MatSlideToggleModule,
   MatStepperModule,
+  MatTableModule,
   MatTabsModule
 } from '@angular/material';
 
@@ -33,6 +34,7 @@ import {
     MatTabsModule,
     MatStepperModule,
     MatChipsModule,
+    MatTableModule
   ],
   exports: [
     MatFormFieldModule,
@@ -49,6 +51,7 @@ import {
     MatTabsModule,
     MatStepperModule,
     MatChipsModule,
+    MatTableModule
   ],
   declarations: [],
   providers: [],
