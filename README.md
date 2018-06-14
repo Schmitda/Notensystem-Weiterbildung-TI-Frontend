@@ -1,8 +1,8 @@
 # Notensystem Weiterbildung TI
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.1.
+Das Projekt wurde generiert mit [Angular CLI](https://github.com/angular/angular-cli) version 1.7.1.
 
-The project includes angular material. 
+Das Projekt inkludiert Angular-Material
 
 
 ## Development server
@@ -46,18 +46,11 @@ Sofern die exportierten Dateien übermässig gross sind, können Sie diese mit d
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Mit `ng test` können Unit-Tests mit [Karma](https://karma-runner.github.io) ausgeführt werden.
 
 ## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Mit `ng e2e` können end to end Tests ausgeführt werden. [Protractor](http://www.protractortest.org/).
