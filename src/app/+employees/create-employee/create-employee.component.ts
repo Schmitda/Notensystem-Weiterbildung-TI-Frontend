@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {EmployeeService} from '../../services/employee.service';
 import {Router} from '@angular/router';
+import {TitleEnum} from '../../models/enums/TitleEnum';
 
 @Component({
   selector: 'bfh-create-employee',
@@ -10,6 +11,7 @@ import {Router} from '@angular/router';
 })
 export class CreateEmployeeComponent implements OnInit {
   public employeeForm: FormGroup;
+  public titles = TitleEnum;
 
   constructor(
     private fb: FormBuilder,
@@ -47,12 +49,16 @@ export class CreateEmployeeComponent implements OnInit {
             resolve(null);
           } else {
             let emp = employees.find(emp => emp.shorthandSymbol === value);
-            resolve({
-              unique: {
-                expected: 'Unique value',
-                found: emp
-              }
-            });
+            if (emp) {
+              resolve({
+                unique: {
+                  expected: 'Unique value',
+                  found: emp
+                }
+              });
+            } else {
+              resolve(null);
+            }
           }
         });
       } else {

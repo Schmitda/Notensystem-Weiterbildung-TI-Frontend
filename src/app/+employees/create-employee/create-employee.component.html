@@ -32,7 +32,7 @@
     <mat-form-field class="full-width">
       <mat-select formControlName="title" placeholder="Titel">
         <mat-option [value]="'NONE'">Kein Titel</mat-option>
-        <mat-option *ngFor="let title of ['DR', 'PROF_DR']" [value]="title">{{title}}
+        <mat-option *ngFor="let title of titles | enumToArray" [value]="title">{{title}}
         </mat-option>
       </mat-select>
       <mat-error *ngIf="employeeForm.get('title').errors &&
