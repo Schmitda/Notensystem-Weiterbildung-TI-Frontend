@@ -3,6 +3,7 @@ import {Observable} from 'rxjs';
 import {EmployeeService} from '../../services/employee.service';
 import {Employee} from '../../models/classes/Employee';
 import {map} from 'rxjs/operators';
+import {of} from 'rxjs/internal/observable/of';
 
 @Component({
   selector: 'bfh-list-employees',
@@ -11,7 +12,7 @@ import {map} from 'rxjs/operators';
 })
 export class ListEmployeesComponent implements OnInit {
   public employees$: Observable<Employee[]>;
-  public displayedColumns = ['id', 'shorthand_symbol', 'first_name', 'last_name', 'email', 'title', 'function', 'actions'];
+  public displayedColumns = ['id', 'shorthand_symbol', 'first_name', 'last_name', 'email', 'title', 'function'];
 
 
   constructor(private employeeService: EmployeeService) {
@@ -19,7 +20,6 @@ export class ListEmployeesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.employees$ = this.employeeService.getAll();
   }
 
   public searchTermChanged(val: string) {
@@ -34,13 +34,8 @@ export class ListEmployeesComponent implements OnInit {
         })
       );
     } else {
-      this.employees$ = this.employeeService.getAll();
+      this.employees$ = of([]);
     }
   }
 
-  deleteEmployee(element: Employee) {
-    this.employeeService.delete(element.id).subscribe((value) => {
-      this.employees$ = this.employeeService.getAll();
-    });
-  }
 }

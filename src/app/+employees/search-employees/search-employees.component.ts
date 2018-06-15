@@ -13,15 +13,16 @@ export class SearchEmployeesComponent implements OnInit {
   @Output() requestChanged: EventEmitter<string> = new EventEmitter();
 
   constructor() {
+
+  }
+
+  ngOnInit() {
     this.formControl.valueChanges.pipe(
       debounceTime(500),
       distinctUntilChanged()
     ).subscribe(val => {
       this.requestChanged.emit(val);
     });
-  }
-
-  ngOnInit() {
   }
 
 }

@@ -1,10 +1,12 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { LoginComponent } from './login.component';
-import {RouterModule} from '@angular/router';
-import {MaterialModule} from '../../base-modules/material.module';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {LoginComponent} from './login.component';
 import {routes} from '../../app.routing';
 import {ContentComponent} from '../content/content.component';
+import {APP_BASE_HREF} from '@angular/common';
+import {RouterTestingModule} from '@angular/router/testing';
+import {SharedModule} from '../../modules/shared.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {CoreModule} from '../../modules/core.module';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -12,19 +14,26 @@ describe('LoginComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoginComponent, ContentComponent ],
-      imports: [RouterModule.forRoot(routes), MaterialModule]
+      declarations: [
+        LoginComponent,
+        ContentComponent
+      ],
+      imports: [
+        RouterTestingModule.withRoutes(routes),
+        SharedModule,
+        BrowserAnimationsModule,
+        CoreModule
+      ],
+      providers: [{provide: APP_BASE_HREF, useValue: '/'}]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LoginComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+
   });
 });

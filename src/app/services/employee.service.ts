@@ -1,6 +1,6 @@
 import {BaseCrudService} from './base-crud.service';
 import {Employee} from '../models/classes/Employee';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 
 @Injectable()
@@ -11,7 +11,9 @@ export class EmployeeService extends BaseCrudService<Employee> {
   }
 
   public findByShorthandSymbol(shorthandSymbol: string) {
-    return this.httpClient.get<Employee[]>(`/api/employees/byShorthand/${shorthandSymbol}`);
+    let httpParams = new HttpParams();
+    httpParams = httpParams.append('keyword', shorthandSymbol);
+    return this.httpClient.get<Employee[]>(`/api/employees?` + httpParams);
   }
 
 }

@@ -1,6 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ContentComponent } from './content.component';
+import {ContentComponent} from './content.component';
+import {SharedModule} from '../../modules/shared.module';
+import {CoreModule} from '../../modules/core.module';
 
 describe('ContentComponent', () => {
   let component: ContentComponent;
@@ -8,18 +10,19 @@ describe('ContentComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ContentComponent ]
+      declarations: [ContentComponent],
+      imports: [
+        SharedModule,
+        CoreModule
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ContentComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+
   });
 });
