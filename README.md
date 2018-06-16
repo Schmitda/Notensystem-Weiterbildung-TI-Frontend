@@ -5,7 +5,7 @@ Das Projekt wurde generiert mit [Angular CLI](https://github.com/angular/angular
 Das Projekt inkludiert Angular-Material
 
 
-## Development server
+## Development Server
 
 Wie starte ich den Angular - Webpack-Server. 
 Um Angular zu starten, wird folgende Software benötigt: 
