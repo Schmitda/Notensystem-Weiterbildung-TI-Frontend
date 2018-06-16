@@ -23,13 +23,13 @@ Sofern der Server nach wie vor an selbiger Stelle fehlschlägt, kann der node_mo
 Installieren sie anschliessend erneut die Node-Module `npm install`. 
 
 Wenn alle Node-Pakete erfolgreich installiert sind, können Sie das Skript `npm run start` ausführen. 
-Die lädt die Proxy-Configuration und startet die Transpilation. 
-Im hintergrund wird der Befehl `ng serve` ausgeführt. 
+Dies lädt die Proxy-Configuration und startet die Transpilation. 
+Im hintergrund wird der Befehl `ng serve --proxy-config <path-to-proxy>` ausgeführt. 
 
 
 ### Der Server lässt sich nicht starten
 Es kann vorkommen, dass beim starten eine Fehlermeldung erscheint. 
-Wahrscheinlich ist node-sass dafür verantwortlich. Sofern in der Fehlermeldung das Paket erwähnt wird, installieren sie node-sass erneut. `npm install node-sass`
+Wahrscheinlich ist node-sass dafür verantwortlich. Sofern in der Fehlermeldung das Paket erwähnt wird, installieren sie node-sass erneut. `npm install node-sass`. Die kann vorkommen, wenn die NodeJS Version aktualisiert wurde. 
 
 ## Produktionsdateien generieren lassen
 
